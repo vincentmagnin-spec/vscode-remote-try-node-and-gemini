@@ -150,6 +150,9 @@ To Use It: Highlight a block of code, press Ctrl + I (or open the Gemini extensi
 
 ⚠️ Limitation: These are strictly Local UI Shortcuts. They generate text responses or code diffs for you to manually accept, but they cannot directly modify your file system or create new directories.
 
+Here is an example of the custom /add-comments
+![alt text](doc/img/example_custom_comments.png)
+
 #### 🚀 Creating an Advanced Skill (Agent Mode)
 
 Advanced skills are highly powerful because they leverage Agent Mode. They use structured .toml configuration files to grant Gemini permission to use local environment tools (like reading the workspace structure, writing new files, patching existing code, or running terminal commands).
