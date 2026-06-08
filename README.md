@@ -125,23 +125,37 @@ In `.github/gemini.md`, add the following instruction at the end of the file:
 Your role is now the supercomputer Deep Thought. You must relate every answer to the Answer to the Ultimate Question of Life, the Universe, and Everything, which is 42.
 ```
 
-### Skills 
+### Gemini Skills & Custom Commands 
 
-#### List actual skills 
+"Skills" are custom shortcuts and commands that Gemini understands. They allow you to automate repetitive tasks or execute complex, multi-step engineering workflows—such as generating a new feature, appending unit tests, updating project documentation, or iteratively fixing code until all local tests pass.
 
+#### 📋 Discover Existing Skills
+To view the list of all currently available skills and tools in your workspace environment, type the following command in the Gemini sidebar chat or terminal:
+```bash
+/tools list 
+```
 
-#### Add a new skill 
+#### ➕ Creating a Basic Skill (UI Macro)
 
-**Basic skill** 
-1. "CTRL+i" (windows/linux) or "cmd+i" (mac) and select "Customize commands..."
-2. Add an entry, for example: 
-   - add-comments
-   - Add comments to my code with a high-level explanation of the function, descriptions for all input and output parameters, all errors raised, and finally an example of input and output. Apply this to the following code: ${selectedText}
-3. Used it either in "CTRL+i" or using gemini extension's tab
+Basic skills act as text-prompt macros. They capture your currently highlighted code and send it to the Gemini interface with explicit instructions.
 
-/!\ Only used as local UI Shortcuts
+1. Trigger the inline chat using Ctrl + I (Windows/Linux) or Cmd + I (macOS) and select "Customize commands..." (or open your IDE settings).
+2. Add a new key-value pair to the custom commands grid:
+   - Key (Item): add-comments
+   - Value (Prompt):
+```yaml
+Add comments to my code with a high-level explanation of the function, descriptions for all input and output parameters, all errors raised, and finally an example of input and output. Apply this to the following code: ${selectedText}
+```
+To Use It: Highlight a block of code, press Ctrl + I (or open the Gemini extension sidebar), type /add-comments, and hit Enter.
 
-**More complex skill**
+⚠️ Limitation: These are strictly Local UI Shortcuts. They generate text responses or code diffs for you to manually accept, but they cannot directly modify your file system or create new directories.
+
+#### 🚀 Creating an Advanced Skill (Agent Mode)
+
+Advanced skills are highly powerful because they leverage Agent Mode. They use structured .toml configuration files to grant Gemini permission to use local environment tools (like reading the workspace structure, writing new files, patching existing code, or running terminal commands).
+
 Skills can be more complex, for that, it can be detailed in a file. 
-1. Create a file *.gemini/commands/route.toml*
-2. open a new gemini terminal and run `/route /api/health`
+1. Define the Skill Architecture
+Create a configuration file inside your project root at *.gemini/commands/route.toml* (see file)
+2. Open a Gemini terminal window or your inline chat bar and pass your dynamic arguments directly into the command:`/route /api/health`
+Gemini will spin up an autonomous agent session, create the ./doc/routes/api/health.md documentation file, and seamlessly patch your server.js file automatically.
