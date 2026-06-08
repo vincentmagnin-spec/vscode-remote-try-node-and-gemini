@@ -17,5 +17,10 @@ app.get('/', (req, res) => {
 	res.send('Hello remote world!\n');
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', message: 'API is healthy' });
+});
+
+app.listen(PORT, HOST, () => {
+  console.log(`Running on http://${HOST}:${PORT}`);
+});

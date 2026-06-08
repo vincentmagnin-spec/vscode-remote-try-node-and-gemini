@@ -1,0 +1,13 @@
+description = "Creates a new GET route in server.js and a matching doc markdown file"
+
+prompt = """
+You are acting in Agent Mode. I want to create a new GET route named: "{{args}}".
+
+Please execute the following steps sequentially using your file manipulation tools:
+
+1. Locate the 'server.js' file in the workspace root. Append a new Express GET route for "{{args}}" at the end of the file (or right before the app.listen block if it exists). The route should return a placeholder JSON object.
+2. Create a new markdown file named after the route (e.g., if the route is /users, create users.md) inside the '/doc/routes/' directory. 
+3. Populate that markdown file with a clean API documentation template detailing the GET endpoint, expected query parameters, and a sample success response.
+
+Confirm when both files have been successfully written or modified.
+"""

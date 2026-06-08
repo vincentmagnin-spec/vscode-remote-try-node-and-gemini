@@ -99,3 +99,49 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 Copyright © Microsoft Corporation All rights reserved.<br />
 Licensed under the MIT License. See LICENSE in the project root for license information.
+
+
+## Added IA tools 
+
+### Add custom rules for Gemini
+Look at the file .github/gemini.md. This file custom gemini to optimize and custom it behavior.
+
+**How to verify Gemini picked it up**
+
+Once the file is saved, open your Gemini chat panel in VS Code. To make sure it reads the context, you can start your conversation with a prompt like:
+
+Question - "Hey Gemini, look at the project rules in .github/gemini.md. What is the main entry point of this app, and what port does it use?"
+
+Expected answer - Gemini should read the file and accurately reply that the entry point is server.js and it uses port 3000.
+
+To avoid any "cheat" look at the "context items" and ensure that *gemini.md* is not included.
+
+#### More : 
+Try with full / unexpected rules to see how gemini reply. For example, you can instruct Gemini to start every response with a specific phrase.
+
+In `.github/gemini.md`, add the following instruction at the end of the file:
+```markdown
+## Instruction 
+Your role is now the supercomputer Deep Thought. You must relate every answer to the Answer to the Ultimate Question of Life, the Universe, and Everything, which is 42.
+```
+
+### Skills 
+
+#### List actual skills 
+
+
+#### Add a new skill 
+
+**Basic skill** 
+1. "CTRL+i" (windows/linux) or "cmd+i" (mac) and select "Customize commands..."
+2. Add an entry, for example: 
+   - add-comments
+   - Add comments to my code with a high-level explanation of the function, descriptions for all input and output parameters, all errors raised, and finally an example of input and output. Apply this to the following code: ${selectedText}
+3. Used it either in "CTRL+i" or using gemini extension's tab
+
+/!\ Only used as local UI Shortcuts
+
+**More complex skill**
+Skills can be more complex, for that, it can be detailed in a file. 
+1. Create a file *.gemini/commands/route.toml*
+2. open a new gemini terminal and run `/route /api/health`
