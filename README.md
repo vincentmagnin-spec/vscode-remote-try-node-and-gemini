@@ -104,7 +104,7 @@ Licensed under the MIT License. See LICENSE in the project root for license info
 ## Added IA tools 
 
 ### Add custom rules for Gemini
-Look at the file .github/gemini.md. This file custom gemini to optimize and custom it behavior.
+Look at the file ./GEMINI.md. This file custom gemini to optimize and custom it behavior.
 
 **How to verify Gemini picked it up**
 
