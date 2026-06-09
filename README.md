@@ -110,7 +110,7 @@ Look at the file .github/gemini.md. This file custom gemini to optimize and cust
 
 Once the file is saved, open your Gemini chat panel in VS Code. To make sure it reads the context, you can start your conversation with a prompt like:
 
-Question - "Hey Gemini, look at the project rules in .github/gemini.md. What is the main entry point of this app, and what port does it use?"
+Question - "Hey Gemini, what is the main entry point of this app, and what port does it use?"
 
 Expected answer - Gemini should read the file and accurately reply that the entry point is server.js and it uses port 3000.
 
